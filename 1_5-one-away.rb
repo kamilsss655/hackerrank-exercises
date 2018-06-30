@@ -14,9 +14,7 @@ module Helpers
       s2_hash = char_count_hash(s2)
       diff_hash = {}
       s1_hash.map do |k,v|
-        if s2_hash[k].nil?
-          s2_hash[k] = 0
-        end
+        s2_hash[k] = 0 if s2_hash[k].nil?
         diff_hash[k] = v - s2_hash[k]
       end
       sum = diff_hash.values.sum
